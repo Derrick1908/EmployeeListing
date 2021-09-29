@@ -21,6 +21,7 @@ namespace EmployeeListing.Controllers
         /// <param name="listRequest">Search Criteria based on which to List the Jobs.</param>
         /// <returns></returns>
         // GET: api/Jobs/
+        [Authorize(Roles = "SuperAdmin, Admin, User")]//This method is accessible For all types of role  
         public IHttpActionResult GetJobViewModel(ListRequest listRequest)
         {
             ListResponse jobResponse = new ListResponse();
@@ -61,6 +62,7 @@ namespace EmployeeListing.Controllers
         /// <returns>Job Details of that Particular Job</returns>
         // GET: api/Jobs/5
         [ResponseType(typeof(JobViewModel))]
+        [Authorize(Roles = "SuperAdmin, Admin, User")]//This method is accessible For all types of role
         public IHttpActionResult GetJobViewModel(int id)
         {
             JobViewModel job = null;
@@ -107,6 +109,7 @@ namespace EmployeeListing.Controllers
         /// <returns></returns>
         // PUT: api/Jobs/5
         [ResponseType(typeof(void))]
+        [Authorize(Roles = "SuperAdmin")]//This method is accessible only for SuperAdmin
         public IHttpActionResult PutJobViewModel(int id, JobViewModel job)
         {
             if (!ModelState.IsValid)
@@ -142,6 +145,7 @@ namespace EmployeeListing.Controllers
         /// <returns></returns>
         // POST: api/Jobs
         [ResponseType(typeof(JobViewModel))]
+        [Authorize(Roles = "SuperAdmin")]//This method is accessible only for SuperAdmin
         public IHttpActionResult PostJobViewModel(JobViewModel job)
         {
             if (!ModelState.IsValid)

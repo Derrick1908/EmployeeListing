@@ -22,6 +22,7 @@ namespace EmployeeListing.Controllers
         /// <returns></returns>
         // GET: api/Departments/5
         [ResponseType(typeof(DepartmentViewModel))]
+        [Authorize(Roles = "SuperAdmin, Admin, User")]//This method is accessible For all types of role
         public IHttpActionResult GetDepartmentViewModel(int id)
         {
             DepartmentViewModel dept = null;
@@ -48,6 +49,7 @@ namespace EmployeeListing.Controllers
         /// <returns></returns>
         // PUT: api/Departments/5
         [ResponseType(typeof(void))]
+        [Authorize(Roles = "SuperAdmin, Admin")]//This method is accessible only for SuperAdmin & Admin
         public IHttpActionResult PutDepartmentViewModel(int id, DepartmentViewModel dept)
         {
             if (!ModelState.IsValid)
@@ -79,6 +81,7 @@ namespace EmployeeListing.Controllers
         /// <returns></returns>
         // POST: api/Departments
         [ResponseType(typeof(DepartmentViewModel))]
+        [Authorize(Roles = "SuperAdmin, Admin")]//This method is accessible only for SuperAdmin & Admin
         public IHttpActionResult PostDepartmentViewModel(DepartmentViewModel dept)
         {
             if (!ModelState.IsValid)

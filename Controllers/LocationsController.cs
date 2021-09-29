@@ -22,6 +22,7 @@ namespace EmployeeListing.Controllers
         /// <returns></returns>
         // GET: api/Locations/5
         [ResponseType(typeof(LocationViewModel))]
+        [Authorize(Roles = "SuperAdmin, Admin, User")]//This method is accessible For all types of role
         public IHttpActionResult GetLocationViewModel(int id)
         {
             LocationViewModel loc = null;
@@ -52,6 +53,7 @@ namespace EmployeeListing.Controllers
         /// <returns></returns>
         // PUT: api/Locations/5
         [ResponseType(typeof(void))]
+        [Authorize(Roles = "SuperAdmin, Admin")]//This method is accessible only for SuperAdmin & Admin
         public IHttpActionResult PutLocationViewModel(int id, LocationViewModel loc)
         {
             if (!ModelState.IsValid)
@@ -87,6 +89,7 @@ namespace EmployeeListing.Controllers
         /// <returns></returns>
         // POST: api/Locations
         [ResponseType(typeof(LocationViewModel))]
+        [Authorize(Roles = "SuperAdmin, Admin")]//This method is accessible only for SuperAdmin & Admin
         public IHttpActionResult PostLocationViewModel(LocationViewModel loc)
         {
             if (!ModelState.IsValid)

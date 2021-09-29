@@ -28,11 +28,6 @@ namespace EmployeeListing.Models
         public virtual DbSet<DEPARTMENT> DEPARTMENTs { get; set; }
         public virtual DbSet<JOB> JOBS { get; set; }
         public virtual DbSet<LOCATION> LOCATIONs { get; set; }
-
-        public System.Data.Entity.DbSet<EmployeeListing.Models.ViewModels.JobViewModel> JobViewModels { get; set; }
-
-        public System.Data.Entity.DbSet<EmployeeListing.Models.ViewModels.LocationViewModel> LocationViewModels { get; set; }
-
-        public System.Data.Entity.DbSet<EmployeeListing.Models.ViewModels.DepartmentViewModel> DepartmentViewModels { get; set; }
+        public virtual DbSet<USER> USERS { get; set; }
     }
 }
